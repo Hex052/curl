@@ -1966,10 +1966,7 @@ ParameterError getparameter(const char *flag, /* f or -long-flag */
     case 'N':
       /* disable the output I/O buffering. note that the option is called
          --buffer but is mostly used in the negative form: --no-buffer */
-      if(longopt)
-        config->nobuffer = (!toggle)?TRUE:FALSE;
-      else
-        config->nobuffer = toggle;
+      config->nobuffer = longopt ? !toggle : toggle;
       break;
     case 'O': /* --remote-name */
       if(subletter == 'a') { /* --remote-name-all */
